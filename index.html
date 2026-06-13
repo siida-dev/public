@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Siida — Student Data Management</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="Siida is a decentralized student data management platform that lets schools own their data while giving teachers cloud-access and resiliency." />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">
+          <img src="./assets/logo_edited.svg" alt="Siida logo" class="logo" />
+          <svg class="logo-text" viewBox="0 0 2048 744" preserveAspectRatio="xMidYMid meet">
+            <use xlink:href="./assets/logo_text.svg" x="0" y="0" width="100%" height="100%"></use>
+          </svg>
+        </a>
+        <button id="nav-toggle" aria-label="Toggle navigation" class="nav-toggle" aria-expanded="false">☰</button>
+        <nav class="nav" id="nav">
+          <button id="nav-close" aria-label="Close navigation" class="nav-toggle nav-close" type="button">☰</button>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#contact" class="btn-outline">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1>Student data, owned by schools. Accessible anywhere.</h1>
+            <p class="lead">Siida combines decentralized data ownership with a hybrid cloud for teacher mobility and data resiliency — grade reporting, attendance, and records without vendor lock-in.</p>
+            <div class="cta-row">
+              <a href="#contact" class="btn-primary">Request a demo</a>
+              <a href="#features" class="btn-ghost">See features</a>
+            </div>
+          </div>
+          <div class="hero-art">
+            <img src="./assets/logo_edited.png" alt="Siida illustration" />
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features container">
+        <h2>Designed for schools and teachers</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Decentralized data ownership</h3>
+            <p>Schools keep custody of their student records and control access — a model built for privacy and local governance.</p>
+          </div>
+          <div class="card">
+            <h3>Hybrid cloud access</h3>
+            <p>Teachers can access grading and records from anywhere, while a hybrid cloud ensures backups and resiliency.</p>
+          </div>
+          <div class="card">
+            <h3>Simple grade reporting</h3>
+            <p>A clean, fast workflow for teachers to record grades, attendance, and comments with exportable reports.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="how container">
+        <h2>How it works</h2>
+        <p class="how-intro">Siida mirrors the same card-grid workflow style as our feature section, but breaks implementation into practical rollout stages for district teams.</p>
+        <div class="grid-3">
+          <article class="card">
+            <h3>1. Deploy school node</h3>
+            <p>Install a school-controlled Siida node on local infrastructure so student records stay under district custody from day one.</p>
+            <p class="step-meta">Includes initial admin setup, role permissions, and legacy data import checks.</p>
+          </article>
+          <article class="card">
+            <h3>2. Configure secure sync</h3>
+            <p>Connect the local node to hybrid cloud backup channels with encrypted sync policies and scheduled recovery snapshots.</p>
+            <p class="step-meta">Supports resilience planning, failover readiness, and remote continuity during outages.</p>
+          </article>
+          <article class="card">
+            <h3>3. Onboard educators</h3>
+            <p>Teachers and staff get role-based access to grading, attendance, and reporting tools from campus or remote environments.</p>
+            <p class="step-meta">Covers onboarding playbooks, classroom workflows, and audit-friendly access controls.</p>
+          </article>
+          <article class="card">
+            <h3>4. Operate with confidence</h3>
+            <p>School leaders monitor usage, export records, and adjust permissions anytime without vendor lock-in or data migration risk.</p>
+            <p class="step-meta">Built for long-term governance, compliance reviews, and district-level reporting.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact container">
+        <h2>Get started with Siida</h2>
+        <p>Interested in a demo or pilot for your district? Tell us a bit about your school and we'll reach out.</p>
+        <form class="contact-form" action="#" onsubmit="alert('Thanks — we will reach out!'); return false;">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="text" name="school" placeholder="School / District" />
+          <button class="btn-primary" type="submit">Request demo</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© Siida — Built for education teams</div>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Docs</a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+  <script>
+    // Simple mobile nav toggle
+    (function(){
+      const btn = document.getElementById('nav-toggle');
+      const closeBtn = document.getElementById('nav-close');
+      const nav = document.getElementById('nav');
+      if(!btn || !nav) return;
+
+      const setOpen = (isOpen) => {
+        btn.setAttribute('aria-expanded', String(isOpen));
+        nav.classList.toggle('open', isOpen);
+      };
+
+      btn.addEventListener('click', ()=>{
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        setOpen(!expanded);
+      });
+
+      closeBtn?.addEventListener('click', () => setOpen(false));
+      nav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
+      });
+    })();
+  </script>
+</html>
