@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
 import {
-  GraduationCap,
   Cloud,
   ShieldCheck,
   Network,
@@ -11,6 +10,9 @@ import {
   Users,
   Lock,
 } from "lucide-react";
+
+import logoEdited from "@/assets/logo_edited.svg";
+import logoText from "@/assets/logo_text.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,11 +40,9 @@ function Landing() {
     <div className="min-h-screen bg-background font-[var(--font-sans)] text-foreground antialiased">
       <Nav />
       <Hero />
-      <LogoStrip />
       <Features />
       <Architecture />
       <Workflow />
-      <Testimonial />
       <CTA />
       <Footer />
     </div>
@@ -55,23 +55,13 @@ function Nav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center gap-2">
           <Logo />
-          <span className="font-[var(--font-display)] text-xl font-semibold tracking-tight">
-            Siida
-          </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#features" className="hover:text-foreground">Features</a>
           <a href="#architecture" className="hover:text-foreground">Architecture</a>
           <a href="#workflow" className="hover:text-foreground">For Teachers</a>
-          <a href="#pricing" className="hover:text-foreground">Pricing</a>
         </nav>
         <div className="flex items-center gap-3">
-          <a
-            href="#"
-            className="hidden text-sm font-medium text-muted-foreground hover:text-foreground sm:inline-flex"
-          >
-            Sign in
-          </a>
           <a
             href="#cta"
             className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-soft)] transition hover:opacity-90"
@@ -86,8 +76,11 @@ function Nav() {
 
 function Logo() {
   return (
-    <div className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-primary-foreground shadow-[var(--shadow-soft)]">
-      <GraduationCap className="h-4 w-4" />
+    <div className="flex shrink-0 items-center gap-1">
+      <img src={logoEdited} alt="Siida" className="h-7 w-auto" />
+      <svg className="h-7 w-auto text-primary" viewBox="0 0 2048 744" preserveAspectRatio="xMidYMid meet">
+        <use href={logoText} x="0" y="0" width="100%" height="100%" />
+      </svg>
     </div>
   );
 }
@@ -126,20 +119,6 @@ function Hero() {
               See how it works
             </a>
           </div>
-          <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-border/60 pt-8">
-            {[
-              { k: "120+", v: "Schools" },
-              { k: "99.99%", v: "Uptime" },
-              { k: "100%", v: "Data owned" },
-            ].map((s) => (
-              <div key={s.v}>
-                <dt className="font-[var(--font-display)] text-2xl font-semibold text-foreground">
-                  {s.k}
-                </dt>
-                <dd className="mt-1 text-xs text-muted-foreground">{s.v}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
         <div className="relative">
           <div className="absolute -inset-6 rounded-3xl bg-primary/10 blur-3xl" />
@@ -151,22 +130,6 @@ function Hero() {
             className="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-glow)]"
           />
         </div>
-      </div>
-    </section>
-  );
-}
-
-function LogoStrip() {
-  const names = ["Northfield Academy", "Riverside ISD", "Oak Hill School", "Crescent College", "Bridgeport Charter"];
-  return (
-    <section className="border-y border-border/60 bg-card/40">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-12 gap-y-4 px-6 py-8 text-sm text-muted-foreground">
-        <span className="text-xs uppercase tracking-widest">Trusted by educators at</span>
-        {names.map((n) => (
-          <span key={n} className="font-[var(--font-display)] text-base text-foreground/70">
-            {n}
-          </span>
-        ))}
       </div>
     </section>
   );
@@ -352,22 +315,6 @@ function Workflow() {
   );
 }
 
-function Testimonial() {
-  return (
-    <section className="bg-secondary/40 py-24">
-      <figure className="mx-auto max-w-4xl px-6 text-center">
-        <blockquote className="font-[var(--font-display)] text-3xl font-medium leading-snug tracking-tight text-foreground sm:text-4xl">
-          “Siida gave us back control of our records — and gave teachers a tool they actually
-          want to open on a Monday morning.”
-        </blockquote>
-        <figcaption className="mt-6 text-sm text-muted-foreground">
-          Dr. Lena Park · Head of School, Northfield Academy
-        </figcaption>
-      </figure>
-    </section>
-  );
-}
-
 function CTA() {
   return (
     <section id="cta" className="mx-auto max-w-7xl px-6 py-24">
@@ -412,10 +359,7 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-2">
           <Logo />
-          <span className="font-[var(--font-display)] text-base font-semibold text-foreground">
-            Siida
-          </span>
-          <span className="ml-2">© {new Date().getFullYear()}</span>
+          <span className="text-muted-foreground">© {new Date().getFullYear()}</span>
         </div>
         <div className="flex flex-wrap gap-6">
           <a href="#" className="hover:text-foreground">Privacy</a>
