@@ -19,6 +19,18 @@ export default defineConfig({
           specifiers: ["server-only"],
         },
       },
+      spa: {
+        enabled: true,
+        prerender: {
+          outputPath: "/index",
+          crawlLinks: true,
+        },
+      },
+      prerender: {
+        enabled: true,
+        autoStaticPathsDiscovery: true,
+        crawlLinks: true,
+      },
     }),
     react(),
   ],
