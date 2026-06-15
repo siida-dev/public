@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 
 import logoEdited from "@/assets/logo_edited.svg";
-import logoText from "@/assets/logo_text.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -121,11 +120,6 @@ function Hero() {
           <h1 className="mt-6 font-[var(--font-display)] text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
             Student data that <em className="italic text-primary">belongs</em> to your school.
           </h1>
-          <p className="mt-3 text-sm text-muted-foreground">
-            <span className="font-medium">/ˈsiː.da/</span>
-            <span className="mx-1.5">-</span>
-            <span className="italic">Sami for "community"</span>
-          </p>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Siida connects everyone in your school - students learning, teachers creating,
             principals leading - on one platform that runs on infrastructure you control. No vendor
@@ -191,7 +185,7 @@ function Features() {
     {
       icon: Lock,
       title: "Privacy-first compliance",
-      body: "Granular audit logs, encryption at rest and in transit, FERPA and GDPR tooling out of the box.",
+      body: "Granular audit logs, encryption at rest and in transit, GDPR tooling out of the box.",
     },
   ];
   return (
@@ -447,7 +441,10 @@ function Footer() {
     <footer className="border-t border-border/60 bg-background">
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
-          <Logo />
+          <div className="flex flex-col gap-2">
+            <Logo />
+            <p className="text-sm text-muted-foreground">Student data your school owns.</p>
+          </div>
           <div className="flex flex-wrap gap-8 text-sm">
             <a href="#" className="text-muted-foreground transition hover:text-foreground">
               Privacy
